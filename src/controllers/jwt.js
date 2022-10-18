@@ -1,5 +1,8 @@
+const jwt = require('jsonwebtoken');
+
 const getJWT = (req, res) => {
-  return res.send('jwt test');
+  const token = jwt.sign({ email: 'logan@test.kr' }, 'logan');
+  return res.send(token);
 };
 
 module.exports = { getJWT };
