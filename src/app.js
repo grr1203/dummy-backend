@@ -7,6 +7,7 @@ const app = express();
 const PORT = 4000;
 
 app.use(morgan('dev'));
+app.use(express.json());
 
 app.use(cors());
 
