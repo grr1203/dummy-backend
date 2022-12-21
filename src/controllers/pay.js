@@ -1,7 +1,7 @@
 const axios = require('axios');
 const base64 = require('base-64');
 const utf8 = require('utf8');
-const tossSecretKey = 'test_sk_zXLkKEypNArWmo50nX3lmeaxYG5R';
+const tossSecretKey = 'test_sk_BE92LAa5PVbJRQb0WNZV7YmpXyJj';
 
 const tossPaymentApproval = async (req, res) => {
   console.log(req.body);
@@ -12,12 +12,14 @@ const tossPaymentApproval = async (req, res) => {
     const tossRes = await axios.post('https://api.tosspayments.com/v1/payments/confirm', params, {
       headers: { Authorization: `Basic ${tossSecretKeyToBase64}` },
     });
-    console.log(tossRes.data);
-    return res.send({ result: 'success', tossRes });
+    console.log('tossRes', tossRes);
+    return res.send({ result: 'success', tossRes: tossRes.data });
   } catch (err) {
+    console.log('error', err);
     const errData = err.response.data;
-    console.log(errData)
-    return res.status(err.response.status).send({ result: 'failed', errorCode: errData.code, errorMessage: errData.message });
+    return res
+      .status(err.response.status)
+      .send({ result: 'failed', errorCode: errData.code, errorMessage: errData.message });
   }
 };
 
