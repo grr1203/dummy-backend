@@ -6,7 +6,7 @@ const secretKey =
 const getJWT = (req, res) => {
   // const token = jwt.sign({ email: 'logan@test.kr', uid: 'PIr6Vz0atjkfHRkyZCmn7', idx: 115, organization_idx: 46}, secretKey);
   const token = jwt.sign(
-    { email: 'logan@test.kr', uid: 'MJxhc4Ou47qsVtxmegOb_', idx: 92, organization_idx: 23 },
+    { email: 'logan@test.kr', uid: 'x62QHEWUWxv7xzGU5lc7g', idx: 348, organization_idx: 198 },
     secretKey
   ); //stag
   return res.send({ token });
