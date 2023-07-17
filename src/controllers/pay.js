@@ -1,9 +1,9 @@
-const axios = require('axios');
-const base64 = require('base-64');
-const utf8 = require('utf8');
+import axios from 'axios';
+import base64 from 'base-64';
+import utf8 from 'utf8';
 const tossSecretKey = 'test_sk_BE92LAa5PVbJRQb0WNZV7YmpXyJj';
 
-const tossPaymentApproval = async (req, res) => {
+export const tossPaymentApproval = async (req, res) => {
   console.log(req.body);
   const { params } = req.body;
   const tossSecretKeyToBase64 = base64.encode(utf8.encode(`${tossSecretKey}:`));
@@ -22,5 +22,3 @@ const tossPaymentApproval = async (req, res) => {
       .send({ result: 'failed', errorCode: errData.code, errorMessage: errData.message });
   }
 };
-
-module.exports = { tossPaymentApproval };

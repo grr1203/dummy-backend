@@ -1,6 +1,6 @@
-const kafka = require('kafka-node');
+import kafka from 'kafka-node'
 
-const kafkaTest = async (req, res) => {
+export const kafkaTest = async (req, res) => {
   //Business Logic
 
   // Kafka 클러스터의 호스트와 포트 정보를 설정 및 producer 객체, 메시지 생성
@@ -24,5 +24,3 @@ const kafkaTest = async (req, res) => {
 
   return res.send({ result: 'success' });
 };
-
-module.exports = { kafkaTest };

@@ -1,7 +1,7 @@
-const express = require('express');
-const morgan = require('morgan');
-const router = require('./routers/Router');
-const cors = require('cors');
+import express from 'express';
+import morgan from 'morgan';
+import router from './routers/Router.js';
+import cors from 'cors';
 
 const app = express();
 const PORT = 4000;
